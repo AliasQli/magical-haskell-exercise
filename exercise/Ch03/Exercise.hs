@@ -36,4 +36,4 @@ mult = undefined
 
 -- Mark this as true when finished.
 finished :: Bool
-finished = True
+finished = False
