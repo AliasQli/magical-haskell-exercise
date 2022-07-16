@@ -1,0 +1,55 @@
+cabal-version:      2.4
+name:               magical-haskell-exercise
+version:            0.3.0
+synopsis:           Magical Haskell's exercises.
+description:        This package contains exercises for Magical Haskell's readers.
+homepage:           https://github.com/AliasQli/magical-haskell-exercise
+bug-reports:        https://github.com/AliasQli/magical-haskell-exercise/issues
+license:            BSD-3-Clause
+author:             Alias Qli
+maintainer:         2576814881@qq.com
+copyright:          (c) Alias Qli 2022
+category:           Test
+extra-source-files: README.md
+
+library
+    default-language: Haskell2010
+    hs-source-dirs:   exercise
+    build-depends:    base >= 4.7 && < 5
+    ghc-options: 
+        -Werror -Wall -Wcompat 
+        -Wincomplete-record-updates -Wredundant-constraints 
+        -Wno-unused-do-bind -Wno-orphans -Wno-name-shadowing -Wno-type-defaults -Wno-unused-imports
+    exposed-modules:
+        Ch03.Definition
+        Ch03.Exercise
+
+library answer
+    default-language: Haskell2010
+    hs-source-dirs:   answer
+    build-depends:    base
+                    , magical-haskell-exercise
+    ghc-options: 
+        -Werror -Wall -Wcompat 
+        -Wincomplete-record-updates -Wredundant-constraints 
+        -Wno-unused-do-bind -Wno-orphans -Wno-name-shadowing -Wno-type-defaults -Wno-unused-imports
+    exposed-modules:
+        Ch03.Answer
+
+test-suite test
+    type:             exitcode-stdio-1.0
+    default-language: Haskell2010
+    hs-source-dirs:   test
+    build-depends:    base
+                    , deepseq
+                    , QuickCheck
+                    , magical-haskell-exercise
+                    , answer
+    ghc-options: 
+        -Werror -Wall -Wcompat 
+        -Wincomplete-record-updates -Wredundant-constraints 
+        -Wno-unused-do-bind -Wno-orphans -Wno-name-shadowing -Wno-type-defaults -Wno-unused-imports
+    main-is:          Main.hs
+    other-modules:
+        TestUtil
+        Ch03.Test
